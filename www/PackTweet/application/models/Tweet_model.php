@@ -22,7 +22,7 @@ class Tweet_model extends CI_Model
 
 		public function getByTweetId($tweetId)
 		{
-        $this->db->select('*, tweets.id AS tweet_id');
+        $this->db->select('name, content, tweets.created_at, tweets.id AS tweet_id');
         $this->db->where('tweets.id', $tweetId);
         $this->db->join('users', 'users.id = tweets.user_id', 'left');
         $query = $this->db->get('tweets');
