@@ -358,3 +358,7 @@ fieldset[disabled] .btn-success.focus {
   border-radius: 100px;
   margin-left: 40px;
 }
+
+.help-block {
+  color: #DA003D;
+}
