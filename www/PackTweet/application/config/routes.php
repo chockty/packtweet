@@ -55,5 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['register']['get'] = 'register';
 $route['register']['post'] = 'register/register';
-$route['tweet/create']['get'] = 'tweet/create';
-$route['tweet/create']['post'] = 'tweet/store';
+$route['tweet/create']['get'] = 'tweets/create';
+$route['tweet/create']['post'] = 'tweets/store';
