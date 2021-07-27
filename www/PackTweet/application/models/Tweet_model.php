@@ -40,4 +40,22 @@ class Tweet_model extends CI_Model
 
         return $this->db->where('id', $tweetId)->update('tweets', $data);
 		}
+
+		public function updateTweet($tweetId, $input)
+		{
+        $today = date("Y-m-d H:i:s");
+
+        $data = array(
+            'content' => $input,
+            'updated_at' => $today,
+        );
+
+        return $this->db->where('id', $tweetId)->update('tweets', $data);
+		}
+
+		public function checkUserId($userId)
+		{
+        $this->db->where('user_id', $userId);
+        return $this->db->get('tweets')->row_array();
+		}
 }
