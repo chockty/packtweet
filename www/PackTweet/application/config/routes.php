@@ -60,3 +60,5 @@ $route['login']['post'] = 'login/login';
 $route['logout'] = 'login/logout';
 $route['tweets/create']['get'] = 'tweets/create';
 $route['tweets/create']['post'] = 'tweets/store';
+$route['tweets/(:num)/show']['get'] = 'tweets/show/$1';
+$route['tweets/(:num)/delete']['post'] = 'tweets/delete/$1';

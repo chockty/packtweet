@@ -309,4 +309,52 @@ fieldset[disabled] .btn-success.focus {
   color: inherit;
 }
 
+.btn-index {
+  color: #00acee;
+  text-decoration: none;
+}
 
+.show-container {
+  background-color: #ffffff;
+  margin-top: 10px;
+  border: 0.5px solid #c0c0c0;
+  padding-bottom: 10px;
+}
+
+.user-name {
+  font-size: 20px;
+  color: inherit;
+  margin: 10px 0 10px 0;
+}
+
+.tweet-content {
+  font-size: 25px;
+}
+
+.tweet-date {
+  font-size: 15px;
+}
+
+.show-title {
+  border-bottom: 0.5px solid #c0c0c0;
+  padding: 0 0 20px 10px;
+}
+
+.show-form-group {
+  padding: 0 20px 0 20px;
+}
+
+.btn-favo {
+  color: #fff;
+  background-color: #DA003D;
+  border-color: #DA003D;
+  border-radius: 100px;
+}
+
+.btn-delete {
+  color: #fff;
+  background-color: #797979;
+  border-color: #797979;
+  border-radius: 100px;
+  margin-left: 40px;
+}
