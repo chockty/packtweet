@@ -84,7 +84,7 @@
   border-color: #05a;
 }
 
-.login span {
+.login .login-error {
   display: block;
   padding: 0 12px;
   color: red;

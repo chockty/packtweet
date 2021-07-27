@@ -14,7 +14,7 @@
     <p><?= form_password('password', set_value('password'), ['placeholder' => 'パスワード']); ?></p>
     <p><?= form_password('password_confirmation', set_value('password'), ['placeholder' => 'パスワード確認']); ?></p>
     <p><?= form_submit('submit', '新規登録'); ?></p>
-  <?= form_close() ?>
+  <?= form_close(); ?>
 
   <div class="form-footer">
     <div class="form-footer-container">

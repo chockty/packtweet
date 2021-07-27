@@ -4,11 +4,13 @@
         <h1 class="login-title">PackTweetにログイン</h1>
       </div>
 
-      <form class="login-container">
-        <p><input type="email" placeholder="メールアドレス"></p>
-        <p><input type="password" placeholder="パスワード"></p>
-        <p><input type="submit" value="ログイン"></p>
-      </form>
+      <?= form_open('login', ['method' => 'POST', 'class' => 'login-container']); ?>
+        <?= form_error('email', '<span class="login-error">', '</span>'); ?>
+        <?= form_error('password', '<span class="login-error">', '</span>'); ?>
+        <p><?= form_input('email', set_value('email'), ['placeholder' => 'メールアドレス']); ?></p>
+        <p><?= form_password('password', set_value('password'), ['placeholder' => 'パスワード']); ?></p>
+        <p><?= form_submit('submit', 'ログイン'); ?></p>
+      <?= form_close(); ?>
 
       <div class="form-footer">
         <div class="form-footer-container">
