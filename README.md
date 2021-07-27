@@ -7,7 +7,7 @@
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
 | 1 | ○   | N/A | ツイートid       | id             | INT unsigned | N/A | NO   | auto_increment      | |
 | 2 | N/A | N/A | ユーザid        | user_id         | INT unsigned | N/A | NO  | N/A                    | |
-| 3 | N/A | N/A | 内容           | content         | TEXT         | N/A | NO   | N/A            |               | 
+| 3 | N/A | N/A | 内容           | content         | TEXT         | 140 | NO   | N/A            |               | 
 | 4 | N/A | N/A | 作成日時        | created_at      | TIMESTAMP   | N/A  | YES  | N/A                | | 
 | 5 | N/A | N/A | 更新日時        | updated_at      | TIMESTAMP   | N/A  | YES  | N/A             | |
 | 6 | N/A | N/A | 削除日時        | deleted_at      | TIMESTAMP   | N/A  | YES  | N/A            | |
