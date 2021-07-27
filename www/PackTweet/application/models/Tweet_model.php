@@ -19,4 +19,25 @@ class Tweet_model extends CI_Model
         ];
 				return $this->db->insert('tweets', $data);
 		}
+
+		public function getByTweetId($tweetId)
+		{
+        $this->db->select('*, tweets.id AS tweet_id');
+        $this->db->where('tweets.id', $tweetId);
+        $this->db->join('users', 'users.id = tweets.user_id', 'left');
+        $query = $this->db->get('tweets');
+        return $query->row_array();
+		}
+
+		public function deleteTweet($tweetId)
+		{
+        $today = date("Y-m-d H:i:s");
+
+        $data = array(
+            'updated_at' => $today,
+            'deleted_at' => $today
+        );
+
+        return $this->db->where('id', $tweetId)->update('tweets', $data);
+		}
 }
