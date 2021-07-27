@@ -4,7 +4,7 @@
         <!-- todo:aタグのリンクは一覧表示のURLにする -->
         <a class="btn-index" href="<?= site_url('tweets'); ?>">←</a>ツイート
       </div>
-      <?= form_open('tweets/delete/' . $tweet['tweet_id'], ['method'=>'POST']); ?>
+      <?= form_open('tweets/delete/' . $tweet['tweet_id']); ?>
         <div class="form-group show-form-group">
           <p class="user-name">&nbsp;<?= $tweet['name'] ?>&nbsp;&nbsp;さんのツイート&nbsp;</p>
           <div class="tweet-content"><?= $tweet['content'] ?></div>
