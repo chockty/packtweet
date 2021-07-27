@@ -1,7 +1,7 @@
     <div class>
       <div class="container">
         <div class="title">ツイート投稿</div>
-        <?= form_open('tweet/create', ['method'=>'POST']); ?>
+        <?= form_open('tweets/create', ['method'=>'POST']); ?>
           <div class="form-group">
             <?= form_textarea(['name' => 'content',  'class' => 'form-control', 'placeholder' => 'いまどうしてる？', 'cols' => '50', 'rows' => '10']); ?>
             <span class="help-block"><?= form_error('content'); ?></span>
