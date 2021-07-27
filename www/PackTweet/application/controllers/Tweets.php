@@ -1,6 +1,6 @@
 <?php
 
-class Tweet extends CI_Controller
+class Tweets extends CI_Controller
 {
 		public function __construct()
 		{
@@ -37,4 +37,9 @@ class Tweet extends CI_Controller
         redirect('/');
 		}
 
+		public function show($tweetId)
+		{
+				$this->load->view('common/header');
+				$this->load->view('users/show_tweet');
+		}
 }
