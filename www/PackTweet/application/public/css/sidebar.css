@@ -1,0 +1,56 @@
+.sidebar {
+	position: relative;
+	margin-left: 15px;
+	margin-top: 30px;
+}
+
+.twitter-icon {
+	position: absolute;
+	left: 30px;
+}
+
+.fa-twitter {
+	color: #1DA1F2;
+}
+
+.sidebar-menu {
+	position: absolute;
+	top: 45px;
+}
+
+.sidebar-menu ul {
+	list-style-type: none;
+}
+
+.sidebar-menu li {
+	padding: 10px 0;
+	font-size: large;
+}
+
+.sidebar-menu a {
+	color: black;
+	text-decoration: none;
+}
+
+.sidebar-menu i {
+	color: #1DA1F2
+}
+
+.link-to-post {
+	position: absolute;
+	top: 320px;
+	left: 30px;
+}
+
+.link-to-post button {
+	border-radius: 120vh;
+	background-color: #1DA1F2;
+	padding: 10px 50px ;
+}
+
+.link-to-post button a {
+	text-decoration: none;
+	color: white;
+}
+
+
