@@ -33,13 +33,22 @@ class Tweets extends CI_Controller
             return $this->load->view('users/create_tweet');
         }
 
-        $this->tweet_model->createTweet();
+				$this->tweet_model->createTweet();
+				// todo:redirect先修正する
         redirect('/');
 		}
 
 		public function show($tweetId)
 		{
+				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
 				$this->load->view('common/header');
-				$this->load->view('users/show_tweet');
+				$this->load->view('users/show_tweet', $data);
+		}
+
+		public function delete($tweetId)
+		{
+				$this->tweet_model->deleteTweet($tweetId);
+				// todo:redirect先修正する
+				redirect('/');
 		}
 }

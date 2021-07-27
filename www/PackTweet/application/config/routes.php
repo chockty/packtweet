@@ -57,3 +57,5 @@ $route['register']['get'] = 'register';
 $route['register']['post'] = 'register/register';
 $route['tweets/create']['get'] = 'tweets/create';
 $route['tweets/create']['post'] = 'tweets/store';
+$route['tweets/(:num)/show']['get'] = 'tweets/show/$1';
+$route['tweets/(:num)/delete']['post'] = 'tweets/delete/$1';
