@@ -19,12 +19,6 @@ class Register extends CI_Controller
 
 		public function register()
 		{
-				$request = [
-					'name' => $this->input->post('name', TRUE),
-					'email' => $this->input->post('email', TRUE),
-					'password' => $this->input->post('password', TRUE),
-				];
-
 				$this->form_validation->set_rules('name', 'ユーザ名', 'required|max_length[40]', [
 					'required' => '%sは必須です。',
 					'max_length' => '{param}文字以内で入力してください。',
@@ -51,6 +45,13 @@ class Register extends CI_Controller
 				if (!$this->form_validation->run()) {
 						return $this->load->view('users/register');
 				}
+
+				$request = [
+					'name' => $this->input->post('name', TRUE),
+					'email' => $this->input->post('email', TRUE),
+					'password' => password_hash($this->input->post('password', TRUE), PASSWORD_DEFAULT),
+				];
+
 				$request['user_id'] = $this->register_model->register($request);
 				$request['logged_in'] = TRUE;
 				$this->session->set_userdata($request);
