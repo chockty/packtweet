@@ -84,6 +84,12 @@
   border-color: #05a;
 }
 
+.login span {
+  display: block;
+  padding: 0 12px;
+  color: red;
+}
+
 .form-footer {
   padding: 12px;
   text-align: right;
