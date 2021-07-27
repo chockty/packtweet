@@ -5,6 +5,7 @@
       </div>
 
       <?= form_open('login', ['method' => 'POST', 'class' => 'login-container']); ?>
+        <span class="login-error"><?= $this->session->flashdata('msg'); ?></span>
         <?= form_error('email', '<span class="login-error">', '</span>'); ?>
         <?= form_error('password', '<span class="login-error">', '</span>'); ?>
         <p><?= form_input('email', set_value('email'), ['placeholder' => 'メールアドレス']); ?></p>
