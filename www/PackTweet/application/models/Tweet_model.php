@@ -7,6 +7,11 @@ class Tweet_model extends CI_Model
 				$this->load->database();
 		}
 
+    public function get_all_tweets()
+    {
+        return $this->db->get('tweets')->result_array();
+    }
+
 		public function createTweet()
 		{
 				$today = date('Y-m-d H:i:s');
