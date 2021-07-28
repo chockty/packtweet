@@ -3,15 +3,8 @@
 }
 
 .tweet-box {
-	width: 100px;
 	border: 1px solid #1DA1F2;
 	padding: 30px 50px;
-}
-
-.tweet-link {
-	display: inline-block;
-	height: 100px;
-	width: 100px;
 }
 
 .tweet-box div {
