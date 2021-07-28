@@ -1,56 +1,31 @@
-.sidebar {
-	position: relative;
-	margin-left: 15px;
-	margin-top: 30px;
-}
-
-.twitter-icon {
-	position: absolute;
-	left: 30px;
-}
-
-.fa-twitter {
+.fa-twitter,
+.nav-left-list i {
 	color: #1DA1F2;
 }
 
-.sidebar-menu {
-	position: absolute;
-	top: 45px;
+.navbar-fixed-left {
+	width: 50%;
 }
 
-.sidebar-menu ul {
+.nav-left-list {
 	list-style-type: none;
 }
 
-.sidebar-menu li {
+.nav-left-list li{
 	padding: 10px 0;
 	font-size: large;
 }
 
-.sidebar-menu a {
+.nav-left-list a {
 	color: black;
 	text-decoration: none;
 }
 
-.sidebar-menu i {
-	color: #1DA1F2
-}
-
-.link-to-post {
-	position: absolute;
-	top: 320px;
-	left: 30px;
-}
-
-.link-to-post button {
+.nav-left-list button {
 	border-radius: 120vh;
 	background-color: #1DA1F2;
-	padding: 10px 50px ;
+	padding: 10px 40px ;
 }
 
-.link-to-post button a {
-	text-decoration: none;
-	color: white;
-}
 
 
