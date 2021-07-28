@@ -4,7 +4,7 @@
           <a class="btn-index" href="<?= site_url('tweets'); ?>">←</a>
         </div>
         <div class="name-tweets-container">
-          <span><i class="user-name-font"><?= $tweets[0]['name'] ?></i></span>
+          <span><i class="user-name-font"><?= $_SESSION['name'] ?></i></span>
           <div class="total-tweets"><?= count($tweets) ?>件のツイート</div>
         </div>
       </div>
