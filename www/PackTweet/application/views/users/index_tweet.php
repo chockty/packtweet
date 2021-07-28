@@ -2,7 +2,7 @@
   <div class="content-wrapper table-responsive">
     <div class="tweet-boxes">
         <? foreach ($tweets as $tweet) : ?>
-        <a href="<?= site_url('tweets/'. $tweet['id'] . '/show') ?>">
+        <a href="<?= site_url('tweets/'. $tweet['tweet_id'] ) ?>">
           <div class="tweet-box">
             <div class="user-info"><?= $tweet['name'] ?></div>
             <div class="tweet-index-content"><?= $tweet['content'] ?></div>
