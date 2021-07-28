@@ -1,0 +1,29 @@
+.fa-twitter,
+.nav-left-list i {
+	color: #1DA1F2;
+}
+
+.navbar-fixed-left {
+	margin-left: 50px;
+	margin-top: 20px;
+}
+
+.nav-left-list {
+	list-style-type: none;
+}
+
+.nav-left-list li{
+	padding: 10px 0;
+	font-size: large;
+}
+
+.nav-left-list a {
+	color: black;
+	text-decoration: none;
+}
+
+.nav-left-list button {
+	border-radius: 120vh;
+	background-color: #1DA1F2;
+	padding: 10px 40px ;
+}

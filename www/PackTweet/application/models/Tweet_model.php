@@ -7,6 +7,15 @@ class Tweet_model extends CI_Model
         $this->load->database();
     }
 
+    public function get_all_tweets()
+    {
+				$this->db->select('name, content, tweets.created_at, tweets.id AS tweet_id');
+        $this->db->where('tweets.deleted_at', NULL);
+        $this->db->order_by('tweets.created_at', 'DESC');
+        $this->db->join('users', 'users.id = tweets.user_id');
+        return $this->db->get('tweets')->result_array();
+    }
+
     public function createTweet()
     {
         $today = date('Y-m-d H:i:s');

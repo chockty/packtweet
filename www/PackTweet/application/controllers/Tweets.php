@@ -15,6 +15,14 @@ class Tweets extends CI_Controller
         }
 		}
 
+		public function index()
+		{
+				$data['tweets'] = $this->tweet_model->get_all_tweets();
+				$this->load->view('common/header');
+				$this->load->view('common/sidebar');
+				$this->load->view('users/index_tweet', $data);
+		}
+
 		public function create()
 		{
 				$this->load->view('common/header');
@@ -51,7 +59,7 @@ class Tweets extends CI_Controller
 				// todo:redirect先修正する
 				redirect('/');
 		}
-
+		
 		public function edit($tweetId)
 		{
 				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
