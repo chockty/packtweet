@@ -4,7 +4,7 @@
         <h1 class="login-title">PackTweetにログイン</h1>
       </div>
 
-      <?= form_open('login', ['method' => 'POST', 'class' => 'login-container']); ?>
+      <?= form_open('login', ['class' => 'login-container']); ?>
         <span class="login-error"><?= $this->session->flashdata('msg'); ?></span>
         <?= form_error('email', '<span class="login-error">', '</span>'); ?>
         <?= form_error('password', '<span class="login-error">', '</span>'); ?>
