@@ -54,7 +54,7 @@ class Tweets extends CI_Controller
 
 		public function edit($tweetId)
 		{
-				if (!$this->tweet_model->checkUserId($_SESSION['user_id'])) {
+				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
 						// todo:redirect先修正する
 						redirect('/');
 				}
@@ -66,6 +66,10 @@ class Tweets extends CI_Controller
 
 		public function update($tweetId)
 		{
+				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
+						// todo:redirect先修正する
+						redirect('/');
+				}
 				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
 				$this->form_validation->set_rules('content', 'ツイート', 'required|max_length[140]', [
 						'required' => '%sは必須です。',
