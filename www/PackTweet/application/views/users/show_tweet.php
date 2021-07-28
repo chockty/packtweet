@@ -16,7 +16,16 @@
         </div>
       <?= form_close(); ?>
     </div>
-  </div>
+    <div class="container show-container">
+      <div class="comment-form">
+        <?= form_open('tweets/' . $tweet['tweet_id']); ?>
+          <!-- <span class="login-error"><?= $this->session->flashdata('msg'); ?></span> -->
+          <?= form_input('content', set_value('content'), ['placeholder' => 'Tweet your reply', 'maxlength' => 140]); ?>
+          <?= form_submit('submit', 'Reply'); ?>
+        <?= form_close(); ?>
+      </div>
+    </div>
+</div>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
 </body>
 </html>
