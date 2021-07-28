@@ -3,7 +3,8 @@
 @media (min-width:1200px){.container{width:923px}}
 @media (min-width:1432px){.container{width:1170px}}
 .navbar-fixed-left,
-.navbar-fixed-right{position:fixed;top:0;width:100%;z-index:1030}
+.navbar-fixed-right{position:fixed;top:0;width:100%;}
+/* .navbar-fixed-right{position:fixed;top:0;width:100%;z-index:1030} */
 
 @media (min-width:768px){
 	.navbar-fixed-left,
