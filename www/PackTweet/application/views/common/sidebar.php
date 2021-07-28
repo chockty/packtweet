@@ -19,7 +19,7 @@
 					<a href="#"><i class="far fa-envelope"></i>&nbsp;&nbsp;メッセージ</a>
 				</li>
 				<li>
-					<a href="#"><i class="far fa-user"></i>&nbsp;&nbsp;プロフィール</a>
+					<a href="<?= site_url('tweets/mypage'); ?>"><i class="far fa-user"></i>&nbsp;&nbsp;プロフィール</a>
 				</li>
 				<li>
 					<a href="/tweets/create"><button class="btn btn-gradient">ツイートする</button></a>
