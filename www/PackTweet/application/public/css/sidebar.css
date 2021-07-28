@@ -4,7 +4,8 @@
 }
 
 .navbar-fixed-left {
-	width: 50%;
+	margin-left: 50px;
+	margin-top: 20px;
 }
 
 .nav-left-list {
