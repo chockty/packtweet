@@ -92,4 +92,13 @@ class Tweets extends CI_Controller
 				// todo:redirect先修正する
 				redirect('/');
 		}
+
+		public function mypage()
+		{
+				$userId = $_SESSION['user_id'];
+				$data['tweets'] = $this->tweet_model->getByUserId($userId);
+				$this->load->view('common/header');
+				$this->load->view('common/sidebar');
+				$this->load->view('users/mypage', $data);
+		}
 }
