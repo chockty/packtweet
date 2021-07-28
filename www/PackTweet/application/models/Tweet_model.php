@@ -74,6 +74,7 @@ class Tweet_model extends CI_Model
         $this->db->select('name, content, tweets.created_at, tweets.id AS tweet_id');
         $this->db->where('user_id', $userId);
         $this->db->where('tweets.deleted_at', NULL);
+        $this->db->order_by('tweets.created_at', 'DESC');
         $this->db->join('users', 'users.id = tweets.user_id', 'left');
         $query = $this->db->get('tweets');
         return $query->result_array();
