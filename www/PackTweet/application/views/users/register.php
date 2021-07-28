@@ -4,7 +4,7 @@
     <h1 class="login-title">新規アカウント作成</h1>
   </div>
 
-  <?= form_open('register', ['method' => 'POST']); ?>
+  <?= form_open('register'); ?>
     <p><?= form_input('name', set_value('name'), ['placeholder' => '名前']); ?></p>
     <?= form_error('name', '<span class="login-error">', '</span>'); ?>
     <p><?= form_input('email', set_value('email'), ['placeholder' => 'メールアドレス']); ?></p>
