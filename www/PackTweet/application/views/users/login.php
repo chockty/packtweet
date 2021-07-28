@@ -6,10 +6,10 @@
 
       <?= form_open('login', ['class' => 'login-container']); ?>
         <span class="login-error"><?= $this->session->flashdata('msg'); ?></span>
-        <?= form_error('email', '<span class="login-error">', '</span>'); ?>
-        <?= form_error('password', '<span class="login-error">', '</span>'); ?>
         <p><?= form_input('email', set_value('email'), ['placeholder' => 'メールアドレス']); ?></p>
+        <?= form_error('email', '<span class="login-error">', '</span>'); ?>
         <p><?= form_password('password', set_value('password'), ['placeholder' => 'パスワード']); ?></p>
+        <?= form_error('password', '<span class="login-error">', '</span>'); ?>
         <p><?= form_submit('submit', 'ログイン'); ?></p>
       <?= form_close(); ?>
 

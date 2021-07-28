@@ -5,14 +5,14 @@
   </div>
 
   <?= form_open('register', ['method' => 'POST']); ?>
-    <?= form_error('name', '<span class="login-error">', '</span>'); ?>
-    <?= form_error('email', '<span class="login-error">', '</span>'); ?>
-    <?= form_error('password', '<span class="login-error">', '</span>'); ?>
-    <?= form_error('password_confirmation', '<span class="login-error">', '</span>'); ?>
     <p><?= form_input('name', set_value('name'), ['placeholder' => '名前']); ?></p>
+    <?= form_error('name', '<span class="login-error">', '</span>'); ?>
     <p><?= form_input('email', set_value('email'), ['placeholder' => 'メールアドレス']); ?></p>
+    <?= form_error('email', '<span class="login-error">', '</span>'); ?>
     <p><?= form_password('password', set_value('password'), ['placeholder' => 'パスワード']); ?></p>
+    <?= form_error('password', '<span class="login-error">', '</span>'); ?>
     <p><?= form_password('password_confirmation', set_value('password'), ['placeholder' => 'パスワード確認']); ?></p>
+    <?= form_error('password_confirmation', '<span class="login-error">', '</span>'); ?>
     <p><?= form_submit('submit', '新規登録'); ?></p>
   <?= form_close(); ?>
 
