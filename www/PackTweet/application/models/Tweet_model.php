@@ -9,8 +9,9 @@ class Tweet_model extends CI_Model
 
     public function get_all_tweets()
     {
-        $this->db->where('deleted_at', NULL);
-        $this->db->order_by('created_at', 'DESC');
+        $this->db->where('tweets.deleted_at', NULL);
+        $this->db->order_by('tweets.created_at', 'DESC');
+        $this->db->join('users', 'tweets.user_id = users.id');
         return $this->db->get('tweets')->result_array();
     }
 
