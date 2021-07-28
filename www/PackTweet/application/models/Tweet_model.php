@@ -7,9 +7,10 @@ class Tweet_model extends CI_Model
         $this->load->database();
     }
 
-    public function get_all_tweets()
+    public function get_all_tweets($search_word = '*')
     {
-				$this->db->select('name, content, tweets.created_at, tweets.id AS tweet_id');
+        $this->db->select('name, content, tweets.created_at, tweets.id AS tweet_id');
+        $this->db->like('content', $search_word);
         $this->db->where('tweets.deleted_at', NULL);
         $this->db->order_by('tweets.created_at', 'DESC');
         $this->db->join('users', 'users.id = tweets.user_id');
