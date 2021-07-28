@@ -13,17 +13,17 @@ class Register extends CI_Controller
 
 		public function index()
 		{
-				$this->load->view('users/register');
+			if ($this->session->userdata('logged_in') !== TRUE) {
+					$this->load->view('common/header');
+					$this->load->view('users/register');
+			} else {
+					// 仮置きURL
+					redirect('/');
+			}
 		}
 
 		public function register()
 		{
-				$request = [
-					'name' => $this->input->post('name', TRUE),
-					'email' => $this->input->post('email', TRUE),
-					'password' => $this->input->post('password', TRUE),
-				];
-
 				$this->form_validation->set_rules('name', 'ユーザ名', 'required|max_length[40]', [
 					'required' => '%sは必須です。',
 					'max_length' => '{param}文字以内で入力してください。',
@@ -36,7 +36,7 @@ class Register extends CI_Controller
 					'is_unique' => '既に登録されている%sです。',
 				]);
 
-				$this->form_validation->set_rules('password', 'パスワード', 'required|min_length[8]|max_length[50]', [
+				$this->form_validation->set_rules('password', 'パスワード', 'required|min_length[8]|max_length[16]', [
 					'required' => '%sは必須です。',
 					'min_length' => '{param}文字以上で入力してください。',
 					'max_length' => '{param}文字以内で入力してください。',
@@ -48,8 +48,15 @@ class Register extends CI_Controller
 				]);
 
 				if (!$this->form_validation->run()) {
-						return $this->load->view('users/register');
+						return $this->index();
 				}
+
+				$request = [
+					'name' => $this->input->post('name', TRUE),
+					'email' => $this->input->post('email', TRUE),
+					'password' => password_hash($this->input->post('password', TRUE), PASSWORD_DEFAULT),
+				];
+
 				$request['user_id'] = $this->register_model->register($request);
 				$request['logged_in'] = TRUE;
 				$this->session->set_userdata($request);
