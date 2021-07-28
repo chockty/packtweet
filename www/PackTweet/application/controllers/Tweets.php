@@ -59,4 +59,37 @@ class Tweets extends CI_Controller
 				// todo:redirect先修正する
 				redirect('/');
 		}
+		
+		public function edit($tweetId)
+		{
+				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
+						// todo:redirect先修正する
+						redirect('/');
+				}
+
+				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
+				$this->load->view('common/header');
+				$this->load->view('users/edit_tweet', $data);
+		}
+
+		public function update($tweetId)
+		{
+				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
+						// todo:redirect先修正する
+						redirect('/');
+				}
+				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
+				$this->form_validation->set_rules('content', 'ツイート', 'required|max_length[140]', [
+						'required' => '%sは必須です。',
+						'max_length' => '{param}文字以内で入力してください。',
+				]);
+        if (!$this->form_validation->run()) {
+						$this->load->view('common/header');
+						return $this->load->view('users/edit_tweet', $data);
+				}
+				$input = $this->input->post('content');
+				$this->tweet_model->updateTweet($tweetId, $input);
+				// todo:redirect先修正する
+				redirect('/');
+		}
 }
