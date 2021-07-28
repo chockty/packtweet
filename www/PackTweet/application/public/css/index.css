@@ -2,6 +2,11 @@
 	width: 80%;
 }
 
+.tweet-boxes a {
+	color: black;
+	text-decoration: none;
+}
+
 .tweet-box {
 	border: 1px solid #1DA1F2;
 	padding: 30px 50px;
