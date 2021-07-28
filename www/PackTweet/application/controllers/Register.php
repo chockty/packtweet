@@ -31,7 +31,7 @@ class Register extends CI_Controller
 					'is_unique' => '既に登録されている%sです。',
 				]);
 
-				$this->form_validation->set_rules('password', 'パスワード', 'required|min_length[8]|max_length[50]', [
+				$this->form_validation->set_rules('password', 'パスワード', 'required|min_length[8]|max_length[16]', [
 					'required' => '%sは必須です。',
 					'min_length' => '{param}文字以上で入力してください。',
 					'max_length' => '{param}文字以内で入力してください。',
