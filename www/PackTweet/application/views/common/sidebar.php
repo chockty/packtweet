@@ -22,11 +22,9 @@
 					<a href="<?= site_url('tweets/mypage'); ?>"><i class="far fa-user"></i>&nbsp;&nbsp;プロフィール</a>
 				</li>
 				<li>
-					<a href="/tweets/create"><button class="btn btn-gradient">ツイートする</button></a>
+					<a><button class="btn btn-gradient">ツイートする</button></a>
 				</li>
 			</ul>
 		</div>
 	</div>
 </nav>
-</body>
-</html>
