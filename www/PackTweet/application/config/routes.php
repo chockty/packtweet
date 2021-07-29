@@ -67,3 +67,4 @@ $route['tweets/(:num)']['post'] = 'comments/create/$1';
 $route['tweets/(:num)/delete']['post'] = 'tweets/delete/$1';
 $route['tweets/(:num)/edit']['get'] = 'tweets/edit/$1';
 $route['tweets/(:num)/edit']['post'] = 'tweets/update/$1';
+$route['tweets/mypage'] = 'tweets/mypage';
