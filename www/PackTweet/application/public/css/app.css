@@ -195,7 +195,6 @@ fieldset[disabled] .form-control {
 .btn:active.focus,
 .btn.active:focus,
 .btn.active.focus {
-  outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
 
@@ -243,22 +242,20 @@ fieldset[disabled] a.btn {
 .btn-success:focus,
 .btn-success.focus {
   color: #fff;
-  background-color: #20895e;
-  border-color: #0d3625;
+  background-color: #00acee;
+  outline: none;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #20895e;
-  border-color: #196c4b;
+  background-color: rgb(26, 145, 218);
 }
 
 .btn-success:active,
 .btn-success.active,
 .open > .btn-success.dropdown-toggle {
   color: #fff;
-  background-color: #20895e;
-  border-color: #196c4b;
+  background-color: #00acee;
 }
 
 .btn-success:active:hover,
@@ -271,8 +268,8 @@ fieldset[disabled] a.btn {
 .open > .btn-success.dropdown-toggle:focus,
 .open > .btn-success.dropdown-toggle.focus {
   color: #fff;
-  background-color: #196c4b;
-  border-color: #0d3625;
+  background-color: #00acee;
+  outline: none;
 }
 
 .btn-success:active,
@@ -324,11 +321,13 @@ fieldset[disabled] .btn-success.focus {
 .user-name {
   font-size: 20px;
   color: inherit;
-  margin: 10px 0 10px 0;
+  padding-top: 10px;
 }
 
 .tweet-content {
   font-size: 25px;
+  text-align: justify;
+  text-justify: inter-ideograph;
 }
 
 .tweet-date {
@@ -358,10 +357,52 @@ fieldset[disabled] .btn-success.focus {
   border-radius: 100px;
   margin-left: 40px;
 }
-<<<<<<< HEAD
-=======
 
 .help-block {
   color: #DA003D;
 }
->>>>>>> develop
+
+.mypage-title {
+  display: flex;
+  border-bottom: 0.5px solid #c0c0c0;
+  padding: 0 0 20px 10px;
+  margin-bottom: 0;
+}
+
+.btn-index-mypage {
+  display: block;
+  text-align: center;
+}
+
+.total-tweets {
+  font-size: 15px;
+}
+
+.name-tweets-container {
+  margin-left: 20px;
+}
+
+.mypage-tweet {
+  display: block;
+  text-decoration: none;
+  color: #636b6f;
+  border-bottom: 0.5px solid #c0c0c0;
+}
+
+.mypage-tweet:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.mypage-container {
+  background-color: #ffffff;
+  border: 0.5px solid #c0c0c0;
+  padding: 0;
+}
+
+.user-name-font {
+  font-weight: bold;
+}
+
+.mypage-tweet-content {
+  margin: 0 10px 0 10px;
+}

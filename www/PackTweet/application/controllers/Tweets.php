@@ -49,7 +49,9 @@ class Tweets extends CI_Controller
 
 		public function show($tweetId)
 		{
+				$this->load->model('comment_model');
 				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
+				$data['comments'] = $this->comment_model->get_by_tweet_id($tweetId);
 				$this->load->view('common/header');
 				$this->load->view('users/show_tweet', $data);
 		}
@@ -60,7 +62,7 @@ class Tweets extends CI_Controller
 				// todo:redirect先修正する
 				redirect('/');
 		}
-		
+
 		public function edit($tweetId)
 		{
 				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
@@ -92,5 +94,14 @@ class Tweets extends CI_Controller
 				$this->tweet_model->updateTweet($tweetId, $input);
 				// todo:redirect先修正する
 				redirect('/');
+		}
+
+		public function mypage()
+		{
+				$userId = $_SESSION['user_id'];
+				$data['tweets'] = $this->tweet_model->getByUserId($userId);
+				$this->load->view('common/header');
+				$this->load->view('common/sidebar');
+				$this->load->view('users/mypage', $data);
 		}
 }

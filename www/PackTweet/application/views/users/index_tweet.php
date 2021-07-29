@@ -24,6 +24,22 @@
         <?= form_close() ?>
       </div>
     </div>
-</div>
+  </div>
+  <div class="modal js-modal">
+    <div class="modal-bg js-modal-close"></div>
+    <div class="modal-content">
+      <div>
+        <a class="js-modal-close">✖️</a>
+      </div>
+      <?= form_open('tweets/create', ['class' => 'modal-form']); ?>
+        <?= form_textarea(['name' => 'content',  'class' => 'form-control modal-text', 'placeholder' => 'いまどうしてる？', 'cols' => '50', 'rows' => '10', 'maxlength' => 140]); ?>
+        <span class="help-block modal-validate"></span>
+        <?= form_button(['type' => 'submit', 'class' => 'btn btn-success pull-right modal-submit', 'content' => "ツイートする"]) ?>
+      <?= form_close(); ?>
+    </div>
+  </div>
+  </div>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="application/public/js/modal.js"></script>
 </body>
 </html>

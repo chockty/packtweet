@@ -11,5 +11,8 @@
     <link href="application/public/css/sidebar.css" rel="stylesheet" >
     <link href="application/public/css/index.css" rel="stylesheet">
     <link href="application/public/css/nav-fix.css" rel="stylesheet">
+    <link href="application/public/css/comments.css" rel="stylesheet">
+    <link href="application/public/css/modal.css" rel="stylesheet">
     <title></title>
   </head>
+  <body>
