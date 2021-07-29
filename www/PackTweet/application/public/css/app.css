@@ -406,3 +406,8 @@ fieldset[disabled] .btn-success.focus {
 .mypage-tweet-content {
   margin: 0 10px 0 10px;
 }
+
+.show-contents {
+  width: 65%;
+	margin: 0 auto;
+}
