@@ -10,14 +10,15 @@ class Tweets extends CI_Controller
 				$this->load->library('session');
         $this->load->helper('url');
 
-        if(!$this->session->userdata('logged_in')){
-            redirect('/register');
-        }
+        // if(!$this->session->userdata('logged_in')){
+        //     redirect('/register');
+        // }
 		}
 
 		public function index()
 		{
-				$data['tweets'] = $this->tweet_model->get_all_tweets();
+				$data['tweets'] = $this->tweet_model->get_all_tweets($this->input->get('search_word', TRUE));
+				$data['search_word'] = $this->input->get('search_word', TRUE);
 				$this->load->view('common/header');
 				$this->load->view('common/sidebar');
 				$this->load->view('users/index_tweet', $data);
