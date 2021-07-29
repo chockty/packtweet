@@ -24,6 +24,11 @@
 				<li>
 					<button class="btn btn-gradient">ツイートする</button>
 				</li>
+				<li>
+					<?= form_open('logout', ['method' => 'GET']) ?>
+						<?= form_button(['name' => 'logout', 'class' => 'btn btn-gradient logout-btn', 'content' => 'ログアウトする']) ?>
+					<?= form_close() ?>
+				</li>
 			</ul>
 		</div>
 	</div>

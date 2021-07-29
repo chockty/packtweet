@@ -36,3 +36,8 @@
 .nav-left-list button:hover {
 	outline: none;
 }
+
+.logout-btn {
+	position: absolute;
+	left: -5px;
+}
