@@ -410,3 +410,8 @@ fieldset[disabled] .btn-success.focus {
 .retweet-index {
   margin-bottom: 10px;
 }
+
+.show-contents {
+  width: 65%;
+	margin: 0 auto;
+}
