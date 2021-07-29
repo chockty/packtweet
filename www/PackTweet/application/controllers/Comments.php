@@ -26,6 +26,7 @@ class Comments extends CI_Controller
 
         if (!$this->form_validation->run()) {
             $data['tweet'] = $this->tweet_model->getByTweetId($tweet_id);
+            $data['comments'] = $this->comment_model->get_by_tweet_id($tweet_id);
             $this->load->view('common/header');
             return $this->load->view('users/show_tweet', $data);
         }
