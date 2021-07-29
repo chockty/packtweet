@@ -16,10 +16,10 @@
         </div>
       <?= form_close(); ?>
     </div>
-    <div class="container show-container">
+    <div class="container comment-container">
       <div class="comment-form">
-        <?= form_open('tweets/' . $tweet['tweet_id']); ?>
-          <?= form_input('content', set_value('content'), ['placeholder' => 'Tweet your reply', 'maxlength' => 140]); ?>
+        <?= form_open('tweets/' . $tweet['tweet_id'], ['class' => 'comment-form']); ?>
+          <?= form_textarea('content', set_value('content'), ['placeholder' => 'Tweet your reply', 'maxlength' => 140, 'class' => 'comment-content', 'cols' => 10, 'rows' => 10]); ?>
           <?= form_submit('submit', 'Reply'); ?>
         <?= form_close(); ?>
       </div>
