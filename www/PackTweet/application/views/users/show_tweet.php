@@ -16,7 +16,25 @@
         </div>
       <?= form_close(); ?>
     </div>
-  </div>
+    <div class="container comment-container">
+      <div class="comment-form">
+        <?= form_open('tweets/' . $tweet['tweet_id'], ['class' => 'comment-form']); ?>
+          <?= form_textarea('content', set_value('content'), ['placeholder' => 'Tweet your reply', 'maxlength' => 140, 'class' => 'comment-content', 'cols' => 10, 'rows' => 10]); ?>
+          <?= form_submit('submit', 'Reply'); ?>
+        <?= form_close(); ?>
+      </div>
+      <?= form_error('content', '<span class="login-error">', '</span>'); ?>
+    </div>
+    <div class="container show-container">
+      <? foreach ($comments as $comment) : ?>
+        <div class="tweet-box">
+          <div class="user-info"><?= $comment['user_name'] ?></div>
+          <div class="tweet-index-content"><?= $comment['content'] ?></div>
+          <div class="tweet-index-created-at"><?= $comment['created_at'] ?></div>
+        </div>
+      <? endforeach; ?>
+    </div>
+</div>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
 </body>
 </html>
