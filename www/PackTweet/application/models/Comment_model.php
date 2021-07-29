@@ -20,4 +20,13 @@ class Comment_model extends CI_Model
         ];
         return $this->db->insert('comments', $data);
     }
+
+    public function get_by_tweet_id($tweet_id)
+    {
+        $this->db->select('content, comments.created_at, name AS user_name');
+        $this->db->where('tweet_id', $tweet_id);
+        $this->db->order_by('comments.created_at', 'DESC');
+        $this->db->join('users', 'users.id = comments.user_id', 'left');
+        return $this->db->get('comments')->result_array();
+    }
 }
