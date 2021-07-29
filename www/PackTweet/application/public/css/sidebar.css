@@ -31,3 +31,8 @@
 .btn-gradient {
 	color: #ffffff;
 }
+
+.nav-left-list button:focus,
+.nav-left-list button:hover {
+	outline: none;
+}
