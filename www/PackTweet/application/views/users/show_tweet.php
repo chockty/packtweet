@@ -1,4 +1,4 @@
-  <div class>
+  <div class='show-contents'>
     <div class="container show-container">
       <div class="title show-title">
         <!-- todo:aタグのリンクは一覧表示のURLにする -->
