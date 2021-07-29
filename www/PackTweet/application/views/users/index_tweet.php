@@ -19,8 +19,8 @@
     </div>
       <div class="search-box">
         <?= form_open('tweets', ['method' => 'GET']) ?>
-          <?= form_button(['name' => 'submit', 'type' => 'submit', 'content' => '<i class="fas fa-search fa-2x"></i>']) ?>
-          <?= form_input(['name' => 'search_word', 'class' => 'input-box', 'value' => $search_word]) ?>
+          <button type="submit" name="submit" id="search-btn" disabled><i class="fas fa-search fa-2x"></i></button>
+          <?= form_input(['name' => 'search_word', 'class' => 'input-box', 'id' => 'search-input-box', 'value' => $search_word]) ?>
         <?= form_close() ?>
       </div>
     </div>
@@ -41,5 +41,6 @@
   </div>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="application/public/js/modal.js"></script>
+  <script src="application/public/js/search_btn.js"></script>
 </body>
 </html>
