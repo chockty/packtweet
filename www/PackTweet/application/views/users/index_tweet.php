@@ -1,7 +1,12 @@
-  <div class="main-wrap">
-    <div class="content-wrapper table-responsive">
-      <div class="tweet-boxes">
-          <? foreach ($tweets as $tweet) : ?>
+<div class="main-wrap">
+  <div class="content-wrapper table-responsive">
+    <div class="tweet-boxes">
+      <? if (count($tweets) === 0): ?>
+        <div class="no-result-alert">
+          <?= $search_word ?>の検索結果はありませんでした。
+        </div>
+      <? else: ?>
+        <? foreach ($tweets as $tweet) : ?>
           <a href="<?= site_url('tweets/'. $tweet['tweet_id'] ) ?>">
             <div class="tweet-box">
               <?php if ($tweet['retweet_user_name'] && $tweet['retweet_user_name'] != '1'): ?>
@@ -12,7 +17,14 @@
               <div class="tweet-index-created-at"><?= $tweet['created_at'] ?></div>
             </div>
           </a>
-          <? endforeach; ?>
+        <? endforeach; ?>
+      <? endif ?>
+    </div>
+      <div class="search-box">
+        <?= form_open('tweets', ['method' => 'GET']) ?>
+          <button type="submit" name="submit" id="search-btn" disabled><i class="fas fa-search fa-2x"></i></button>
+          <?= form_input(['name' => 'search_word', 'class' => 'input-box', 'id' => 'search-input-box', 'value' => $search_word]) ?>
+        <?= form_close() ?>
       </div>
     </div>
   </div>
@@ -29,7 +41,9 @@
       <?= form_close(); ?>
     </div>
   </div>
+  </div>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="application/public/js/modal.js"></script>
+  <script src="application/public/js/search_btn.js"></script>
 </body>
 </html>

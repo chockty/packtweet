@@ -10,14 +10,15 @@ class Tweets extends CI_Controller
 				$this->load->library('session');
         $this->load->helper('url');
 
-        if(!$this->session->userdata('logged_in')){
-            redirect('/register');
-        }
+        // if(!$this->session->userdata('logged_in')){
+        //     redirect('/register');
+        // }
 		}
 
 		public function index()
 		{
-				$data['tweets'] = $this->tweet_model->get_all_tweets();
+				$data['tweets'] = $this->tweet_model->get_all_tweets($this->input->get('search_word', TRUE));
+				$data['search_word'] = $this->input->get('search_word', TRUE);
 				$this->load->view('common/header');
 				$this->load->view('common/sidebar');
 				$this->load->view('users/index_tweet', $data);
@@ -48,7 +49,9 @@ class Tweets extends CI_Controller
 
 		public function show($tweetId)
 		{
+				$this->load->model('comment_model');
 				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
+				$data['comments'] = $this->comment_model->get_by_tweet_id($tweetId);
 				$this->load->view('common/header');
 				$this->load->view('users/show_tweet', $data);
 		}
@@ -59,7 +62,7 @@ class Tweets extends CI_Controller
 				// todo:redirect先修正する
 				redirect('/');
 		}
-		
+
 		public function edit($tweetId)
 		{
 				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {

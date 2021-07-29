@@ -1,20 +1,69 @@
 .tweet-boxes {
-	width: 60%;
-	margin-left: 250px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tweet-boxes a {
-	color: black;
-	text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 .tweet-box {
-	border: 1px solid #1DA1F2;
-	padding: 30px 50px;
+  border: 1px solid #1DA1F2;
+  padding: 30px 50px;
 }
 
 .tweet-box div {
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  width: 15%;
+  float: right;
+  position: fixed;
+  top: 50px;
+  right: 30px;
+}
+
+.fa-search {
+  color: #1DA1F2;
+}
+
+.search-box form {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #1DA1F2;
+  border-radius: 120vh;
+  padding: 20px;
+  outline: none;
+}
+
+.input-box {
+  width: 70%;
+  height: 80%;
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 4px;
+  left: 45px;
+  font-size: large;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 9px;
+  left: 5px;
+}
+
+.no-result-alert {
+	font-size: large;
 	display: flex;
 	justify-content: center;
+	margin-top: 50px;
 }
 
