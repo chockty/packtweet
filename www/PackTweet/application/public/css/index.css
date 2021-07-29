@@ -60,3 +60,10 @@
   left: 5px;
 }
 
+.no-result-alert {
+	font-size: large;
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+}
+
