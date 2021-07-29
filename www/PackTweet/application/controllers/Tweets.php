@@ -51,7 +51,6 @@ class Tweets extends CI_Controller
 				$this->load->model('comment_model');
 				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
 				$data['comments'] = $this->comment_model->get_by_tweet_id($tweetId);
-				var_dump($data['comments']);
 				$this->load->view('common/header');
 				$this->load->view('users/show_tweet', $data);
 		}
