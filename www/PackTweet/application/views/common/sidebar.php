@@ -22,11 +22,11 @@
 					<a href="<?= site_url('tweets/mypage'); ?>"><i class="far fa-user"></i>&nbsp;&nbsp;プロフィール</a>
 				</li>
 				<li>
-					<button class="btn btn-gradient">ツイートする</button>
+					<button class="btn btn-gradient create-tweet">ツイートする</button>
 				</li>
 				<li>
 					<?= form_open('logout', ['method' => 'GET']) ?>
-						<?= form_button(['name' => 'logout', 'class' => 'btn btn-gradient logout-btn', 'content' => 'ログアウトする']) ?>
+						<?= form_button(['name' => 'logout','type' => 'submit', 'class' => 'btn btn-gradient logout-btn', 'content' => 'ログアウトする']) ?>
 					<?= form_close() ?>
 				</li>
 			</ul>
