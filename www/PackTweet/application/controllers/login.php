@@ -17,7 +17,6 @@ class Login extends CI_Controller
             $this->load->view('common/header');
             $this->load->view('users/login');
         } else {
-            // 仮置きURL
             redirect('/');
         }
     }
@@ -56,7 +55,6 @@ class Login extends CI_Controller
             ];
 
             $this->session->set_userdata($ses_array);
-            // 仮置きURL
             redirect('/');
         } else {
           echo $this->session->set_flashdata('msg','ログイン情報に誤りがあります。');
