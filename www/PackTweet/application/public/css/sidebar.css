@@ -27,3 +27,12 @@
 	background-color: #1DA1F2;
 	padding: 10px 40px ;
 }
+
+.btn-gradient {
+	color: #ffffff;
+}
+
+.nav-left-list button:focus,
+.nav-left-list button:hover {
+	outline: none;
+}
