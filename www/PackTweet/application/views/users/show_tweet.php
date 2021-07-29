@@ -6,7 +6,7 @@
       </div>
       <?= form_open('tweets/delete/' . $tweet['tweet_id']); ?>
         <div class="form-group show-form-group">
-          <p class="user-name">&nbsp;<?= $tweet['name'] ?>&nbsp;&nbsp;さんのツイート&nbsp;</p>
+          <p class="user-name">&nbsp;<i class="user-name-font"><?= $tweet['name'] ?></i>&nbsp;&nbsp;さんのツイート&nbsp;</p>
           <div class="tweet-content"><?= $tweet['content'] ?></div>
           <p class="tweet-date"><?= str_replace(['am', 'pm'], ['午前', '午後'], date('a g:i · Y年n月d日 ', strtotime($tweet['created_at']))) ?></p>
         </div>

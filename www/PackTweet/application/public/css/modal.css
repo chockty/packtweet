@@ -1,0 +1,38 @@
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.modal-bg{
+  background: rgba(0,0,0,0.4);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  z-index: 1031;
+}
+.modal-content{
+  background: #fff;
+  left: 50%;
+  padding: 5px 10px 10px 10px;
+  position: absolute;
+  top: 30%;
+  transform: translate(-50%,-50%);
+  width: 60%;
+  z-index: 1032;
+  border-radius:10px;
+}
+
+.js-modal-close {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.modal-text {
+  margin-bottom: 10px;
+}
+
+.body-fixed {
+  overflow: hidden;
+}
