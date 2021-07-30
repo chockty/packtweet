@@ -50,7 +50,7 @@ class Tweets extends CI_Controller
 		{
 				$this->load->model('comment_model');
 				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
-				$data['comments'] = $this->comment_model->get_by_tweet_id($tweetId);
+                $data['comments'] = $this->comment_model->get_by_tweet_id($tweetId);
 				$this->load->view('common/header');
 				$this->load->view('common/sidebar');
 				$this->load->view('users/show_tweet', $data);
@@ -99,5 +99,12 @@ class Tweets extends CI_Controller
 				$this->load->view('common/header');
 				$this->load->view('common/sidebar');
 				$this->load->view('users/mypage', $data);
-		}
+        }
+
+        public function retweet($tweetId)
+        {
+                $userId = $_SESSION['user_id'];
+                $this->tweet_model->createRetweet($tweetId, $userId);
+                redirect('/');
+        }
 }

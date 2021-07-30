@@ -348,6 +348,7 @@ fieldset[disabled] .btn-success.focus {
   background-color: #DA003D;
   border-color: #DA003D;
   border-radius: 100px;
+  margin-left: 40px;
 }
 
 .btn-delete {
@@ -407,7 +408,23 @@ fieldset[disabled] .btn-success.focus {
   margin: 0 10px 0 10px;
 }
 
+.retweet-index {
+  margin-bottom: 10px;
+}
+
 .show-contents {
   width: 65%;
 	margin: 0 auto;
+}
+
+.btn-retweet {
+  color: #fff;
+  background-color: #d0e2be;
+  border-color: #d0e2be;
+  border-radius: 100px;
+  margin-left: 40px;
+}
+
+.retweet-count {
+  font-size: 25px;
 }
