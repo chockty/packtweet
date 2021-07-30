@@ -9,8 +9,8 @@
         <? foreach ($tweets as $tweet) : ?>
           <a href="<?= site_url('tweets/'. $tweet['tweet_id'] ) ?>">
             <div class="tweet-box">
-              <?php if ($tweet['retweet_user_name'] && $tweet['retweet_user_name'] != '1'): ?>
-                <div class="retweet-index"><i class="fas fa-retweet">&nbsp;&nbsp;<?= $tweet['retweet_user_name'] ?>さんがリツイートしました。</i></div>
+              <?php if ($tweet['retweet_or_not'] && $tweet['retweet_or_not'] != '1'): ?>
+                <div class="retweet-index"><i class="fas fa-retweet">&nbsp;&nbsp;<?= $tweet['retweet_or_not'] ?>さんがリツイートしました。</i></div>
               <?php endif; ?>
               <div class="user-info"><?= $tweet['name'] ?></div>
               <div class="tweet-index-content"><?= $tweet['content'] ?></div>
