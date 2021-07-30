@@ -73,7 +73,6 @@
 | 5 | N/A | N/A | 作成日時      | created_at  | TIMESTAMP   | N/A  | YES     | N/A             |               |
 | 6 | N/A | N/A | 更新日時      | updated_at  | TIMESTAMP   | N/A  | YES     | N/A             |             |
 
-<<<<<<< HEAD
 <br />
 
 | テーブル論理名 | テーブル物理名 |
@@ -86,9 +85,6 @@
 | 1 | ○   | ○  | ユーザid      | user_id             | INT unsigned | N/A | NO   | auto_increment      | |
 | 2 | ○   | ○  | ツイートid      | tweet_id             | INT unsigned | N/A | NO   | auto_increment      | |
 | 3 | N/A | N/A | 作成日時      | created_at  | TIMESTAMP   | N/A  | YES     | N/A             |               |
-=======
+
+
 ※ユーザidとツイートidの組み合わせは一意性を保つ
-
-<br />
-
->>>>>>> develop
