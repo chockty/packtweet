@@ -11,6 +11,9 @@
       <? foreach ($tweets as $tweet): ?>
       <a class="mypage-tweet" href="<?= site_url('tweets/' . $tweet['tweet_id']); ?>">
         <div class="form-group show-form-group">
+          <?php if ($tweet['retweet_or_not'] && $tweet['retweet_or_not'] != '1'): ?>
+              <div class=""><i class="fas fa-retweet">リツイート済み</i></div>
+          <?php endif; ?>
           <p class="user-name">&nbsp;<i class="user-name-font"><?= $tweet['name'] ?></i>&nbsp;&nbsp;&nbsp;<?= date('Y年n月d日 ', strtotime($tweet['created_at'])) ?></p>
           <div class="tweet-content mypage-tweet-content"><?= $tweet['content'] ?></div>
         </div>

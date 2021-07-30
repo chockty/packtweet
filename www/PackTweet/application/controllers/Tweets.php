@@ -11,9 +11,9 @@ class Tweets extends CI_Controller
 				$this->load->library('session');
         $this->load->helper('url');
 
-        // if(!$this->session->userdata('logged_in')){
-        //     redirect('/register');
-        // }
+        if(!$this->session->userdata('logged_in')){
+            redirect('/register');
+        }
 		}
 
 		public function index()
@@ -44,7 +44,6 @@ class Tweets extends CI_Controller
         }
 
 				$this->tweet_model->createTweet();
-				// todo:redirect先修正する
         redirect('/');
 		}
 
@@ -52,22 +51,21 @@ class Tweets extends CI_Controller
 		{
 				$this->load->model('comment_model');
 				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
-				$data['comments'] = $this->comment_model->get_by_tweet_id($tweetId);
+                $data['comments'] = $this->comment_model->get_by_tweet_id($tweetId);
 				$this->load->view('common/header');
+				$this->load->view('common/sidebar');
 				$this->load->view('users/show_tweet', $data);
 		}
 
 		public function delete($tweetId)
 		{
 				$this->tweet_model->deleteTweet($tweetId);
-				// todo:redirect先修正する
 				redirect('/');
 		}
 
 		public function edit($tweetId)
 		{
 				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
-						// todo:redirect先修正する
 						redirect('/');
 				}
 
@@ -79,7 +77,6 @@ class Tweets extends CI_Controller
 		public function update($tweetId)
 		{
 				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
-						// todo:redirect先修正する
 						redirect('/');
 				}
 				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
@@ -93,7 +90,6 @@ class Tweets extends CI_Controller
 				}
 				$input = $this->input->post('content');
 				$this->tweet_model->updateTweet($tweetId, $input);
-				// todo:redirect先修正する
 				redirect('/');
 		}
 
@@ -118,5 +114,12 @@ class Tweets extends CI_Controller
             $this->favorite_model->create($user_id, $tweet_id);
             redirect('tweets/' . $tweet_id);
         }
+    }
+
+    public function retweet($tweetId)
+    {
+        $userId = $_SESSION['user_id'];
+        $this->tweet_model->createRetweet($tweetId, $userId);
+        redirect('/');
     }
 }

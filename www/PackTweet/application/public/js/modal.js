@@ -1,5 +1,5 @@
 $(function() {
-  $('.btn-gradient').on('click', function () {
+  $('.create-tweet').on('click', function () {
       $('.modal').fadeIn(300);
       $('body').addClass('body-fixed');
     });

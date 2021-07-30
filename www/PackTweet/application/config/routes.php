@@ -49,14 +49,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'tweets';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['register']['get'] = 'register';
 $route['register']['post'] = 'register/register';
 
-$route['tweets'] = 'tweets';
 $route['login']['get'] = 'login';
 $route['login']['post'] = 'login/login';
 $route['logout'] = 'login/logout';
@@ -69,3 +68,4 @@ $route['tweets/(:num)/edit']['get'] = 'tweets/edit/$1';
 $route['tweets/(:num)/edit']['post'] = 'tweets/update/$1';
 $route['tweets/mypage'] = 'tweets/mypage';
 $route['tweets/favorite']['post'] = 'tweets/favorite';
+$route['tweets/(:num)/retweet']['post'] = 'tweets/retweet/$1';
