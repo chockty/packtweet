@@ -4,10 +4,10 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav-left-list">
 				<li>
-					<a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+					<a href="<?= site_url('tweets'); ?>"><i class="fab fa-twitter fa-2x"></i></a>
 				</li>
 				<li>
-					<a href="#"><i class="fas fa-home"></i>&nbsp;&nbsp;ホーム</a>
+					<a href="<?= site_url('tweets'); ?>"><i class="fas fa-home"></i>&nbsp;&nbsp;ホーム</a>
 				</li>
 				<li>
 					<a href="#"><i class="fas fa-hashtag"></i>&nbsp;&nbsp;話題を検索</a>
