@@ -25,16 +25,16 @@
         </a>
       <? endforeach; ?>
       </div>
-      <!-- 以下はダミー(いいねしたツイート表示) -->
       <div class="tab-content is-hidden">
-        <a class="mypage-tweet" href="">
-          <div class="form-group show-form-group">
-            <p class="user-name">&nbsp;<i class="user-name-font">hoge</li>&nbsp;&nbsp;&nbsp;2021年7月30日</p>
-            <div class="tweet-content mypage-tweet-content">いいねしたツイートを表示</div>
-          </div>
-        </a>
+        <? foreach ($favorites as $favorite): ?>
+          <a class="mypage-tweet" href="<?= site_url('tweets/' . $favorite['tweet_id']); ?>">
+            <div class="form-group show-form-group">
+              <p class="user-name">&nbsp;<i class="user-name-font"><?= $favorite['name'] ?></i>&nbsp;&nbsp;&nbsp;<?= date('Y年n月d日 ', strtotime($favorite['tweet_time'])) ?></p>
+              <div class="tweet-content mypage-tweet-content"><?= $favorite['content'] ?></div>
+            </div>
+          </a>
+        <? endforeach; ?>
       </div>
-      <!--  -->
     </div>
     <div class="modal js-modal">
       <div class="modal-bg js-modal-close"></div>
