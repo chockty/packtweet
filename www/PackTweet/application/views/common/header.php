@@ -14,6 +14,5 @@
     <link href="application/public/css/comments.css" rel="stylesheet">
     <link href="application/public/css/modal.css" rel="stylesheet">
     <title></title>
-		
   </head>
   <body>

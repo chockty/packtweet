@@ -6,6 +6,7 @@ class Tweets extends CI_Controller
 		{
 				parent::__construct();
 				$this->load->model('tweet_model');
+        $this->load->model('favorite_model');
 				$this->load->library('form_validation');
 				$this->load->library('session');
         $this->load->helper('url');
@@ -104,4 +105,18 @@ class Tweets extends CI_Controller
 				$this->load->view('common/sidebar');
 				$this->load->view('users/mypage', $data);
 		}
+
+    public function favorite()
+    {
+        $user_id = $_SESSION['user_id'];
+        $tweet_id = $this->input->post('tweet_id');
+
+        if ($this->favorite_model->is_exists($user_id, $tweet_id)) {
+            $this->favorite_model->delete($user_id, $tweet_id);
+            redirect('tweets/' . $tweet_id);
+        } else {
+            $this->favorite_model->create($user_id, $tweet_id);
+            redirect('tweets/' . $tweet_id);
+        }
+    }
 }

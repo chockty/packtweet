@@ -12,8 +12,11 @@
         </div>
         <div class="show-icon">
           <?= form_button(['type' => 'submit', 'class' => 'btn btn-delete pull-right', 'content' => "<i class='fas fa-trash-alt fa-2x'></i>"]) ?>
-          <a class="btn btn-favo pull-right"><i class="far fa-heart fa-2x"></i></a>
         </div>
+      <?= form_close(); ?>
+      <?= form_open('tweets/favorite'); ?>
+        <input type="hidden" name="tweet_id" value="<?= $tweet['tweet_id']; ?>">
+        <?= form_button(['type' => 'submit'], '<i class="far fa-heart fa-2x"></i>', ['class' => 'btn btn-favo pull-right']); ?>
       <?= form_close(); ?>
     </div>
     <div class="container comment-container">
