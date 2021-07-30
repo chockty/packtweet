@@ -33,18 +33,24 @@ class Tweets extends CI_Controller
 
 		public function store()
 		{
-        $this->form_validation->set_rules('content', 'ツイート', 'required|max_length[140]', [
-          'required' => '%sは必須です。',
-          'max_length' => '{param}文字以内で入力してください。',
-        ]);
+            $this->form_validation->set_rules('content', 'ツイート', 'required|max_length[140]', [
+                'required' => '%sは必須です。',
+                'max_length' => '{param}文字以内で入力してください。',
+            ]);
 
-        if (!$this->form_validation->run()) {
-						$this->load->view('common/header');
-            return $this->load->view('users/create_tweet');
-        }
+            $urlArray = parse_url($_SERVER['HTTP_REFERER']);
 
-				$this->tweet_model->createTweet();
-        redirect('/');
+            if (!$this->form_validation->run()) {
+                if ($urlArray['path'] === '/tweets/create') {
+                    $this->load->view('common/header');
+                    return $this->load->view('users/create_tweet');
+                } else {
+                    return $this->index();
+                }
+            }
+
+            $this->tweet_model->createTweet();
+            redirect('/');
 		}
 
 		public function show($tweetId)
@@ -95,11 +101,12 @@ class Tweets extends CI_Controller
 
 		public function mypage()
 		{
-				$userId = $_SESSION['user_id'];
-				$data['tweets'] = $this->tweet_model->getByUserId($userId);
-				$this->load->view('common/header');
-				$this->load->view('common/sidebar');
-				$this->load->view('users/mypage', $data);
+            $userId = $_SESSION['user_id'];
+            $data['tweets'] = $this->tweet_model->getByUserId($userId);
+            $data['favorites'] = $this->favorite_model->getByUserId($userId);
+            $this->load->view('common/header');
+            $this->load->view('common/sidebar');
+            $this->load->view('users/mypage', $data);
 		}
 
     public function favorite()

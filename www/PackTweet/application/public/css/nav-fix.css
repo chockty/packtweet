@@ -38,7 +38,7 @@
 		left:100%;right:auto;border-radius:0 3px 3px 0}
 		.navbar-fixed-left .dropdown .dropdown-toggle .caret{border-top:4px solid transparent;border-left:4px solid;border-bottom:4px solid transparent;border-right:none}}
 
-		@media (min-width:768px){.mypage-container{width:453px}}
-		@media (min-width:992px){.mypage-container{width:683px}}
-		@media (min-width:1200px){.mypage-container{width:873px}}
-		@media (min-width:1432px){.mypage-container{width:1120px}}
+		@media (min-width:768px){.mypage-container, .index-container{width:403px}}
+		@media (min-width:992px){.mypage-container, .index-container{width:633px}}
+		@media (min-width:1200px){.mypage-container, .index-container{width:673px}}
+		@media (min-width:1432px){.mypage-container, .index-container{width:920px}}

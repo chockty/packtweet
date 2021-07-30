@@ -287,12 +287,12 @@ fieldset[disabled] a.btn {
 fieldset[disabled] .btn-success:hover,
 fieldset[disabled] .btn-success:focus,
 fieldset[disabled] .btn-success.focus {
-  background-color: #2ab27b;
-  border-color: #259d6d;
+  background-color: #00acee;
+  border-color: #00acee;
 }
 
 .btn-success .badge {
-  color: #2ab27b;
+  color: #00acee;
   background-color: #fff;
 }
 
@@ -389,7 +389,7 @@ fieldset[disabled] .btn-success.focus {
   border-bottom: 0.5px solid #c0c0c0;
 }
 
-.mypage-tweet:hover {
+.mypage-tweet:hover, .index-tweet:hover {
   background-color: rgba(0, 0, 0, 0.03);
 }
 
@@ -456,4 +456,40 @@ fieldset[disabled] .btn-success.focus {
 
 .select-tab {
   border-bottom: 2px solid #00acee;
+}
+
+.index-container {
+  background-color: #ffffff;
+  border: 0.5px solid #c0c0c0;
+  padding: 0;
+}
+
+.index-title {
+  display: flex;
+  padding: 0 0 10px 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 0.5px solid #c0c0c0;
+}
+
+.index-form-group {
+  height: 200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.index-group {
+  padding: 0 20px 15px 20px;
+  margin-bottom: 0;
+}
+
+.index-tweet {
+  display: block;
+  text-decoration: none;
+  color: #636b6f;
+  border-top: 0.5px solid #c0c0c0;
+}
+
+.index-help-block {
+  margin-bottom: 0;
 }
