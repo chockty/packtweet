@@ -1,33 +1,4 @@
 <div class="main-wrap">
-  <!-- <div class="content-wrapper table-responsive">
-    <div class="tweet-boxes">
-      <? if (count($tweets) === 0): ?>
-        <div class="no-result-alert">
-          <?= $search_word ?>の検索結果はありませんでした。
-        </div>
-      <? else: ?>
-        <? foreach ($tweets as $tweet) : ?>
-          <a href="<?= site_url('tweets/'. $tweet['tweet_id'] ) ?>">
-            <div class="tweet-box">
-              <?php if ($tweet['retweet_or_not'] && $tweet['retweet_or_not'] != '1'): ?>
-                <div class="retweet-index"><i class="fas fa-retweet">&nbsp;&nbsp;<?= $tweet['retweet_or_not'] ?>さんがリツイートしました。</i></div>
-              <?php endif; ?>
-              <div class="user-info"><?= $tweet['name'] ?></div>
-              <div class="tweet-index-content"><?= $tweet['content'] ?></div>
-              <div class="tweet-index-created-at"><?= $tweet['created_at'] ?></div>
-            </div>
-          </a>
-        <? endforeach; ?>
-      <? endif ?>
-    </div>
-      <div class="search-box">
-        <?= form_open('tweets', ['method' => 'GET']) ?>
-          <button type="submit" name="submit" id="search-btn" disabled><i class="fas fa-search fa-2x"></i></button>
-          <?= form_input(['name' => 'search_word', 'class' => 'input-box', 'id' => 'search-input-box', 'value' => $search_word]) ?>
-        <?= form_close() ?>
-      </div>
-    </div>
-  </div> -->
   <div class="container index-container">
       <div>
         <? if (count($tweets) === 0): ?>
