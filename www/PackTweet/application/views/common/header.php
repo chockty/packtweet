@@ -7,7 +7,7 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" >
     <link href="application/public/css/reset.css" rel="stylesheet">
     <link href="application/public/css/app.css" rel="stylesheet">
-		<link href="application/public/css/login.css" rel="stylesheet">
+    <link href="application/public/css/login.css" rel="stylesheet">
     <link href="application/public/css/sidebar.css" rel="stylesheet" >
     <link href="application/public/css/index.css" rel="stylesheet">
     <link href="application/public/css/nav-fix.css" rel="stylesheet">
