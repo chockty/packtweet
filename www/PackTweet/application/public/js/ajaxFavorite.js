@@ -1,28 +1,28 @@
 $(function () {
-  let favorite = $('#js-favorite-toggle');
-  let csrf_name = favorite.prevAll('input[name="csrf_test_name"]');
-  let tweet_id = favorite.prevAll('input[name="tweet_id"]').val();
+  let favoriteBtn = $('#js-favorite-toggle');
+  let csrfName = favoriteBtn.prevAll('input[name="csrf_test_name"]');
+  let tweetId = favoriteBtn.prevAll('input[name="tweet_id"]').val();
 
-  favorite.on('click', function (e) {
+  favoriteBtn.on('click', function (e) {
     e.preventDefault();
-    // console.log(csrf_name.val());
-    // return console.log(csrf_name.attr('name'))
-    // favoriteId = $this.data('tweet_id');
     let postdata = {
-      tweet_id: tweet_id,
+      tweet_id: tweetId,
     }
-    postdata[csrf_name.attr('name')] = csrf_name.val();
+    postdata[csrfName.attr('name')] = csrfName.val();
     $.ajax({
             url: 'tweets/favorite',
             type: 'POST',
             data: postdata,
     }).done(function (data) {
-      let $this = $(this);
-      let csrf_token = $('input[name="csrf_test_name"]');
-      csrf_token.val() = data['csrf_hash'];
-			// return console.log('OK');
-      console.log(csrf_token);
-      $this.find('i').toggleClass('far fa-bookmark');
+      let favoriteIcon = favoriteBtn.find('i');
+      $('input[name="csrf_test_name"]').val(data['csrf_hash']);
+      if(data['favorite']) {
+        favoriteIcon.removeClass('far');
+        favoriteIcon.addClass('fas');
+      } else {
+        favoriteIcon.removeClass('fas');
+        favoriteIcon.addClass('far');
+      }
     })
   });
 });
