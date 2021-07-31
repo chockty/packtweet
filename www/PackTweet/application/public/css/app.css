@@ -344,12 +344,14 @@ fieldset[disabled] .btn-success.focus {
 }
 
 .btn-favo {
-  color: #fff;
-  background-color: #DA003D;
-  border-color: #DA003D;
-  border-radius: 100px;
+  color: red;
+  background-color: white;
   margin-left: 40px;
 }
+
+/* .btn-liked {
+	
+} */
 
 .btn-delete {
   color: #fff;
@@ -413,7 +415,7 @@ fieldset[disabled] .btn-success.focus {
 
 .show-contents {
   width: 65%;
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 .btn-retweet {
