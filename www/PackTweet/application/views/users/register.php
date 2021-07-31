@@ -18,7 +18,7 @@
 
   <div class="form-footer">
     <div class="form-footer-container">
-      <a href="#" class="form-footer-link">既にアカウントをお持ちの方•ログイン</a>
+      <a href="login" class="form-footer-link">既にアカウントをお持ちの方•ログイン</a>
     </div>
   </div>
 </div>

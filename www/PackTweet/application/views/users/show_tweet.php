@@ -15,8 +15,8 @@
       <?= form_close(); ?>
 
       <?= form_open('tweets/favorite'); ?>
-        <input type="hidden" name="tweet_id" value="<?= $tweet['tweet_id']; ?>">
-        <?= form_button(['type' => 'submit'], '<i class="far fa-heart fa-2x"></i>', ['class' => 'btn btn-favo pull-right']); ?>
+        <?= form_hidden('tweet_id', $tweet['tweet_id']) ?>
+        <?= form_button(['type' => 'submit'], '<i class="fas fa-heart fa-2x"></i>', ['class' => 'btn btn-favo pull-right', 'id' => 'js-favorite-toggle']); ?>
       <?= form_close(); ?>
 
       <?= form_open('tweets/retweet/' . $tweet['tweet_id']); ?>
@@ -46,6 +46,8 @@
       <? endforeach; ?>
     </div>
 </div>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+<script src="application/public/js/ajaxFavorite.js"></script>
 </body>
 </html>

@@ -2,105 +2,105 @@
 
 class Tweets extends CI_Controller
 {
-		public function __construct()
-		{
-				parent::__construct();
-				$this->load->model('tweet_model');
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('tweet_model');
         $this->load->model('favorite_model');
-				$this->load->library('form_validation');
-				$this->load->library('session');
+        $this->load->library('form_validation');
+        $this->load->library('session');
         $this->load->helper('url');
-
+        
         if(!$this->session->userdata('logged_in')){
             redirect('/register');
         }
-		}
+    }
 
-		public function index()
-		{
-				$data['tweets'] = $this->tweet_model->get_all_tweets($this->input->get('search_word', TRUE));
-				$data['search_word'] = $this->input->get('search_word', TRUE);
-				$this->load->view('common/header');
-				$this->load->view('common/sidebar');
-				$this->load->view('users/index_tweet', $data);
-		}
+    public function index()
+    {
+        $data['tweets'] = $this->tweet_model->get_all_tweets($this->input->get('search_word', TRUE));
+        $data['search_word'] = $this->input->get('search_word', TRUE);
+        $this->load->view('common/header');
+        $this->load->view('common/sidebar');
+        $this->load->view('users/index_tweet', $data);
+    }
 
-		public function create()
-		{
-				$this->load->view('common/header');
-				$this->load->view('users/create_tweet');
-		}
+    public function create()
+    {
+        $this->load->view('common/header');
+        $this->load->view('users/create_tweet');
+    }
 
-		public function store()
-		{
+    public function store()
+    {
         $this->form_validation->set_rules('content', 'ツイート', 'required|max_length[140]', [
-          'required' => '%sは必須です。',
-          'max_length' => '{param}文字以内で入力してください。',
+            'required' => '%sは必須です。',
+            'max_length' => '{param}文字以内で入力してください。',
         ]);
 
         if (!$this->form_validation->run()) {
-						$this->load->view('common/header');
+            $this->load->view('common/header');
             return $this->load->view('users/create_tweet');
         }
 
-				$this->tweet_model->createTweet();
+        $this->tweet_model->createTweet();
         redirect('/');
-		}
+    }
 
-		public function show($tweetId)
-		{
-				$this->load->model('comment_model');
-				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
+    public function show($tweetId)
+    {
+        $this->load->model('comment_model');
+        $data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
                 $data['comments'] = $this->comment_model->get_by_tweet_id($tweetId);
-				$this->load->view('common/header');
-				$this->load->view('common/sidebar');
-				$this->load->view('users/show_tweet', $data);
-		}
+        $this->load->view('common/header');
+        $this->load->view('common/sidebar');
+        $this->load->view('users/show_tweet', $data);
+    }
 
-		public function delete($tweetId)
-		{
-				$this->tweet_model->deleteTweet($tweetId);
-				redirect('/');
-		}
+    public function delete($tweetId)
+    {
+        $this->tweet_model->deleteTweet($tweetId);
+        redirect('/');
+    }
 
-		public function edit($tweetId)
-		{
-				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
-						redirect('/');
-				}
+    public function edit($tweetId)
+    {
+        if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
+            redirect('/');
+        }
 
-				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
-				$this->load->view('common/header');
-				$this->load->view('users/edit_tweet', $data);
-		}
+        $data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
+        $this->load->view('common/header');
+        $this->load->view('users/edit_tweet', $data);
+    }
 
-		public function update($tweetId)
-		{
-				if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
-						redirect('/');
-				}
-				$data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
-				$this->form_validation->set_rules('content', 'ツイート', 'required|max_length[140]', [
-						'required' => '%sは必須です。',
-						'max_length' => '{param}文字以内で入力してください。',
-				]);
+    public function update($tweetId)
+    {
+        if (!$this->tweet_model->checkUserId($_SESSION['user_id'], $tweetId)) {
+            redirect('/');
+        }
+        $data['tweet'] = $this->tweet_model->getByTweetId($tweetId);
+        $this->form_validation->set_rules('content', 'ツイート', 'required|max_length[140]', [
+            'required' => '%sは必須です。',
+            'max_length' => '{param}文字以内で入力してください。',
+        ]);
         if (!$this->form_validation->run()) {
-						$this->load->view('common/header');
-						return $this->load->view('users/edit_tweet', $data);
-				}
-				$input = $this->input->post('content');
-				$this->tweet_model->updateTweet($tweetId, $input);
-				redirect('/');
-		}
+            $this->load->view('common/header');
+            return $this->load->view('users/edit_tweet', $data);
+        }
+        $input = $this->input->post('content');
+        $this->tweet_model->updateTweet($tweetId, $input);
+        redirect('/');
+    }
 
-		public function mypage()
-		{
-				$userId = $_SESSION['user_id'];
-				$data['tweets'] = $this->tweet_model->getByUserId($userId);
-				$this->load->view('common/header');
-				$this->load->view('common/sidebar');
-				$this->load->view('users/mypage', $data);
-		}
+    public function mypage()
+    {
+        $userId = $_SESSION['user_id'];
+        $data['tweets'] = $this->tweet_model->getByUserId($userId);
+        $this->load->view('common/header');
+        $this->load->view('common/sidebar');
+        $this->load->view('users/mypage', $data);
+    }
 
     public function favorite()
     {
@@ -109,11 +109,16 @@ class Tweets extends CI_Controller
 
         if ($this->favorite_model->is_exists($user_id, $tweet_id)) {
             $this->favorite_model->delete($user_id, $tweet_id);
-            redirect('tweets/' . $tweet_id);
+            $return_favorites_data['favorite'] = FALSE;
         } else {
             $this->favorite_model->create($user_id, $tweet_id);
-            redirect('tweets/' . $tweet_id);
+            $return_favorites_data['favorite'] = TRUE;
         }
+        $return_favorites_data['csrf_hash'] = $this->security->get_csrf_hash();
+        $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($return_favorites_data));
+        return $return_favorites_data;
     }
 
     public function retweet($tweetId)

@@ -1,24 +1,28 @@
 $(function () {
-  let favorite = $('#js-favorite-toggle');
-  let favoriteId;
-  let csrf_hash = $("#token").val();
-  let csrf_name = $("#token").attr('name');
+  let favoriteBtn = $('#js-favorite-toggle');
+  let csrfName = favoriteBtn.prevAll('input[name="csrf_test_name"]');
+  let tweetId = favoriteBtn.prevAll('input[name="tweet_id"]').val();
 
-  favorite.on('click', function (e) {
+  favoriteBtn.on('click', function (e) {
     e.preventDefault();
-    let $this = $(this);
-    favoriteId = $this.data('tweet_id');
     let postdata = {
-      id: favoriteId,
+      tweet_id: tweetId,
     }
-    postdata[csrf_name] = csrf_hash;
+    postdata[csrfName.attr('name')] = csrfName.val();
     $.ajax({
             url: 'tweets/favorite',
             type: 'POST',
             data: postdata,
     }).done(function (data) {
-            console.log(data);
-            $this.find('i').toggleClass('far fa-bookmark');
+      let favoriteIcon = favoriteBtn.find('i');
+      $('input[name="csrf_test_name"]').val(data['csrf_hash']);
+      if(data['favorite']) {
+        favoriteIcon.removeClass('far');
+        favoriteIcon.addClass('fas');
+      } else {
+        favoriteIcon.removeClass('fas');
+        favoriteIcon.addClass('far');
+      }
     })
   });
 });
