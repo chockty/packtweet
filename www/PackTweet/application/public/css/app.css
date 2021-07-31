@@ -349,9 +349,11 @@ fieldset[disabled] .btn-success.focus {
   margin-left: 40px;
 }
 
-/* .btn-liked {
-	
-} */
+.btn-favo:hover,
+.btn-favo:focus {
+	color: red;
+  background-color: white;
+}
 
 .btn-delete {
   color: #fff;
